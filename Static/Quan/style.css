@@ -1,0 +1,213 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+  *{
+    font-family: 'Noto Serif', serif;
+  }
+  #map {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+  }
+  .marker {
+    background-image: url("/blueMarker.png");
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .mapboxgl-popup {
+    max-width: 200px;
+  }
+  .mapboxgl-popup-content {
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+  }
+  /* Optional: Add custom CSS to style the sidebar further, if desired */
+  #sidebar {
+    position: absolute;
+    top: 0;
+    left: 94px;
+    bottom: 0;
+    z-index: 11; /* Ensure sidebar is above other content */
+    overflow-y: auto; /* Scrollable content */
+    background-color: white; /* Or any color you prefer */
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  /* Additional class to control visibility */
+  #sidebar.visible {
+    transform: translateX(0); /* Slide in */
+  }
+  #toggleSidebarButton {
+    position: absolute;
+    z-index: 1000; /* Ensures the button is above everything else */
+    top: 10px;
+    left: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 0.5rem;
+    width: 50px;
+    border: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* Add shadow to the button for better visibility */
+    display: block !important;
+  }
+  
+  #nav-sidebar {
+    position: absolute;
+    z-index: 1000; /* Ensures the sidebar is above the map but below the button */
+    top: 0;
+    left: 0;
+    width: 300px; /* Set the sidebar width */
+    height: 100%; /* Full height */
+    background-color: #fff; /* Sidebar background */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Shadow on the right side of the sidebar */
+    overflow-y: auto; /* If content is long, let it scroll */
+    transform: translateX(-100%); /* Hide the sidebar initially */
+    transition: transform 0.3s ease-in-out; /* Animation for sidebar */
+  }
+  
+  #nav-sidebar.open {
+    transform: translateX(0); /* Bring sidebar into view */
+  }
+  
+  .closeSideBar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5em;
+    border: none;
+    background: transparent;
+    font-size: 1.5em; /* Makes the close button bigger */
+    cursor: pointer;
+    z-index: 3; /* Ensures the close button is above the sidebar content */
+  }
+  /* Overlay styles */
+  .overlay {
+    display: none; /* Hidden by default */
+    position: fixed; /* Cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 500; /* Just below the sidebar level */
+  }
+  .sidebar-container {
+    background-color: #fff;
+    position: fixed; /* Fixed position */
+    border: 1px solid black;
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    z-index: 300; /* Above other content but below the button */
+    width: 100px; /* Width of the sidebar */
+    height: 100vh; /* Full height */
+  }
+  
+  #AdInfodropdownMenuButton{
+    border: 1px solid black;
+    position: absolute;
+    top: 80px;
+  }
+  #AdInfodropdownMenuButton:hover{
+    background-color: black;
+    color: white;
+  }
+  #ReportInfodropdownMenuButton{
+    border: 1px solid black;
+    position: absolute;
+    top: 160px;
+  }
+  #ReportInfodropdownMenuButton:hover{
+    background-color: black;
+    color: white;
+  }
+  #LicenseInfodropdownMenuButton{
+    border: 1px solid black;
+    position: absolute;
+    top: 240px;
+  }
+  #LicenseInfodropdownMenuButton:hover{
+    background-color: black;
+    color: white;
+  }
+  #LogIn{
+    border: 1px solid black;
+    position: absolute;
+    top: 500px;
+  }
+  #LogIn:hover{
+    background-color: black;
+    color: white;
+  }
+  .dropdown-menu{
+    max-height: 200px;
+    overflow-y: scroll;
+  }
+  .marker {
+    background-image: url("/blueMarker.png");
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .red {
+    background-image: url("/redMarker.png");
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .yellow {
+    background-image: url("/yellowMarker.png");
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .green {
+    background-image: url("/greenMarker.jpg");
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  #dropdownMenuButton1{
+    border: 1px solid black;
+  }
+  #dropdownMenuButton1:hover{
+    color: #46BDC6;
+  }
+  #AdInfo{
+    border: 1px solid black;
+  }
+  #AdInfo:hover{
+    color: #46BDC6;
+  }
+  #ReportInfo{
+    border: 1px solid black;
+  }
+  #ReportInfo:hover{
+    color: #46BDC6;
+  }
+  #LicenseInfo{
+    border: 1px solid black;
+  }
+  #LicenseInfo:hover{
+    color: #46BDC6;
+  }
+  #LogOut{
+    border: 1px solid black;
+  }
+  #LogOut:hover{
+    color: #46BDC6;
+  }

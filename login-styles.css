@@ -1,0 +1,19 @@
+div.bottom {
+    margin: 0 10px 25px 0 !important
+}
+
+.bi-star-fill {
+    color: gold;
+}
+
+#greet {
+    margin: 3rem 3rem 2rem 2rem;
+}
+
+#intro {
+    margin: 0 3rem 2rem 3rem;
+}
+
+.form-elements {
+    margin: 0 3rem
+}

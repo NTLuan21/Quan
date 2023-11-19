@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Cấp phép quảng cáo cho công ty</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Mapbox API -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <!-- Local stylesheet and jquery-->
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+
+  <body class="overflow-scroll">
+    <!-- Header goes here -->
+    <header class="container-fluid bg-primary py-3">
+      <nav class="navbar navbar-expand-sm navbar-dark container">
+        <div class="container">
+          <a class="navbar-brand" href="./index.html"
+            ><i class="bi bi-house fs-3 align-self-center"></i>&nbsp; Cấp phép
+            quảng cáo cho công ty</a
+          >
+          <button
+            class="navbar-toggler d-lg-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Redirecting navigation goes here -->
+          <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  href="./index.html"
+                  aria-current="page"
+                  >Trang chủ <span class="visually-hidden">(current)</span></a
+                >
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Body goes here -->
+    <main>
+      <div class="card text-center">
+        <!-- Card header goes here -->
+        <div class="card-header">
+          <h4 class="card-title text-left">
+            Danh sách cấp phép quảng cáo cho các công ty/doanh nghiệp trong khu
+            vực Phường Cầu Kho, Quận 1
+          </h4>
+        </div>
+
+        <!-- Card body goes here -->
+        <div class="card-body">
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+              <a class="nav-link active fw-bold" aria-current="true" href="#"
+                >Tất cả</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-semibold" href="#">Đã Duyệt</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-semibold" href="#" tabindex="-1"
+                >Chờ Duyệt</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Button for license issuing goes here -->
+      <a
+        name="create"
+        id="create"
+        class="btn btn-primary mt-3 mb-4"
+        href="#"
+        role="button"
+        data-bs-toggle="modal"
+        data-bs-target="#newLicense"
+        ><i class="bi bi-plus"></i>Tạo yêu cầu cấp phép mới</a
+      >
+
+      <!-- Search bar goes here -->
+      <div
+        class="container-fluid d-flex flex-row justify-content-between align-items-center bg-dark bg-opacity-10"
+      >
+        <div class="mb-3">
+          <label for="billboard-search" class="form-label fw-bold"
+            >Tìm yêu cầu cấp phép quảng cáo</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="billboard-search"
+            id="billboard-search"
+            aria-describedby="helpId"
+            placeholder="Tìm thông tin về yêu cầu"
+          />
+          <small id="helpId" class="form-text text-muted fw-semibold fst-italic"
+            >Nhập thông tin bất kỳ của yêu cầu cấp phép để tìm kiếm</small
+          >
+        </div>
+        <a
+          name="filter"
+          id="filter"
+          class="btn btn-primary bg-light bg-opacity-100"
+          href="#"
+          role="button"
+          ><i class="bi bi-funnel"></i
+        ></a>
+      </div>
+
+      <!-- Table containing license issues here -->
+      <div class="container-fluid table-responsive" id="info-table">
+        <table
+          class="table table-striped table-hover table-borderless table-light align-middle"
+        >
+          <thead class="table-light opacity-100">
+            <tr>
+              <th>Bảng/Điểm đặt</th>
+              <th>Nội dung quảng cáo</th>
+              <th>Thông tin của công ty</th>
+              <th>Email</th>
+              <th>Số điện thoại</th>
+              <th>Ngày bắt đầu hợp đồng</th>
+              <th>Ngày kết thúc hợp đồng</th>
+              <th>Tình trạng</th>
+              <th>Thao tác</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <tr class="table-light opacity-100">
+              <td scope="row">
+                Quảng cáo thương mại / Đinh Tiên Hoàng - Mạc Đĩnh Chi
+              </td>
+              <td>Tôn Vinsteel Thăng Long</td>
+              <td>Công ty TNHH Vinsteel</td>
+              <td>ctyvinsteel@gmail.com</td>
+              <td>0123456789</td>
+              <td>23/11/2023</td>
+              <td>23/03/2024</td>
+              <td>Đã Duyệt</td>
+              <td>
+                <a
+                  name="cancel"
+                  id="cancel"
+                  class="btn btn-light active disabled"
+                  href="#"
+                  role="button"
+                  >Hủy</a
+                >
+              </td>
+            </tr>
+            <tr class="table-light opacity-100">
+              <td scope="row">
+                Quảng cáo thương mại / Điện Biên Phủ - Mạc Đĩnh Chi
+              </td>
+              <td>Trà xanh thiên nhiên Coogin</td>
+              <td>Công ty TNHH Coogin</td>
+              <td>ctycoogin@gmail.com</td>
+              <td>0902001002</td>
+              <td>19/10/2023</td>
+              <td>19/01/2024</td>
+              <td>Chưa Duyệt</td>
+              <td>
+                <a
+                  name="cancel"
+                  id="cancel"
+                  class="btn btn-success"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#cancelRequest"
+                  >Hủy</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Modal for cancel request -->
+      <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+      <div
+        class="modal fade"
+        id="cancelRequest"
+        tabindex="-1"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        role="dialog"
+        aria-labelledby="modalTitleId"
+        aria-hidden="true"
+      >
+        <div
+          class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
+          role="document"
+        >
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title fw-bold" id="modalTitleId">
+                Hủy yêu cầu cấp phép?
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div
+              class="modal-body d-flex justify-content-between align-items-center"
+            >
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                <i class="bi bi-arrow-90deg-left"></i>&nbsp; Quay lại
+              </button>
+              <button type="button" class="btn btn-primary">
+                <i class="bi bi-x"></i> &nbsp;Hủy
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal for creating new ad license -->
+      <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+      <div
+        class="modal fade"
+        id="newLicense"
+        tabindex="-1"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        role="dialog"
+        aria-labelledby="modalTitleId"
+        aria-hidden="true"
+      >
+        <div
+          class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg"
+          role="document"
+        >
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title fw-bold" id="modalTitleId">
+                Tạo yêu cầu cấp phép quảng cáo
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form method="get" action="" class="m-0" id="createLicense">
+                <div class="row">
+                  <div
+                    class="col-7 d-flex flex-row flex-wrap justify-content-between align-items-center my-3"
+                  >
+                    <div class="mb-3">
+                      <label for="ad" class="form-label fw-bold"
+                        >Bảng quảng cáo & điểm đặt</label
+                      >
+                      <input
+                        type="text"
+                        name="ad"
+                        id="ad"
+                        class="form-control"
+                        placeholder=""
+                        aria-describedby="helpId"
+                      />
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="adContent" class="form-label fw-bold"
+                        >Nội dung quảng cáo</label
+                      >
+                      <input
+                        type="text"
+                        name="adContent"
+                        id="adContent"
+                        class="form-control"
+                        placeholder=""
+                        aria-describedby="helpId"
+                      />
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="companyInfo" class="form-label fw-bold"
+                        >Thông tin công ty</label
+                      >
+                      <input
+                        type="text"
+                        name="companyInfo"
+                        id="companyInfo"
+                        class="form-control"
+                        placeholder=""
+                        aria-describedby="helpId"
+                      />
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="companyEmail" class="form-label fw-bold"
+                        >Email công ty</label
+                      >
+                      <input
+                        type="email"
+                        name="companyEmail"
+                        id="companyEmail"
+                        class="form-control"
+                        placeholder=""
+                        aria-describedby="helpId"
+                      />
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="companyPhone" class="form-label fw-bold"
+                        >Số điện thoại công ty</label
+                      >
+                      <input
+                        type="text"
+                        name="companyPhone"
+                        id="companyPhone"
+                        class="form-control"
+                        placeholder=""
+                        aria-describedby="helpId"
+                      />
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="companyAddress" class="form-label fw-bold"
+                        >Địa chỉ công ty</label
+                      >
+                      <input
+                        type="text"
+                        name="companyAddress"
+                        id="companyAddress"
+                        class="form-control"
+                        placeholder=""
+                        aria-describedby="helpId"
+                      />
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="startDate" class="form-label fw-bold"
+                        >Ngày bắt đầu hợp đồng</label
+                      >
+                      <input
+                        type="date"
+                        name="startDate"
+                        id="startDate"
+                        class="form-control"
+                        placeholder=""
+                        aria-describedby="helpId"
+                      />
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="endDate" class="form-label fw-bold"
+                        >Ngày kết thúc hợp đồng</label
+                      >
+                      <input
+                        type="date"
+                        name="endDate"
+                        id="endDate"
+                        class="form-control"
+                        placeholder=""
+                        aria-describedby="helpId"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-5 my-3">
+                    <div class="mb-3">
+                      <label for="img" class="form-label fw-bold">Chọn file ảnh để tải lên</label>
+                      <input
+                        type="file"
+                        class="form-control"
+                        name="img"
+                        id="img"
+                        placeholder=""
+                        aria-describedby="fileHelpId"
+                      />
+                      <div id="fileHelpId" class="form-text">Chọn ảnh của quảng cáo để tải lên</div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                <i class="bi bi-x"></i> &nbsp; Hủy
+              </button>
+              <button
+                type="submit"
+                class="btn btn-primary"
+                form="createLicense"
+              >
+                <i class="bi bi-send"></i> &nbsp; Gửi
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css"
+      type="text/css"
+    />
+    <!-- Include jQuery if needed for other scripts; otherwise, it's not required for Bootstrap 5 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Include the Bootstrap bundle script that contains Bootstrap's JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Your custom script file -->
+    <script type="text/javascript" src="./script.js"></script>
+
+    <!-- Any additional scripts -->
+    <script type="text/javascript" src="/AdData.json"></script>
+    <!-- Optional: Place to the bottom of scripts -->
+    <script>
+      const cancel = new bootstrap.Modal(
+        document.getElementById("cancelRequest"),
+        options
+      );
+    </script>
+
+    <!-- Optional: Place to the bottom of scripts -->
+    <script>
+      const create = new bootstrap.Modal(
+        document.getElementById("newLicense"),
+        options
+      );
+    </script>
+  </body>
+</html>
